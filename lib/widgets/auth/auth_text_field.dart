@@ -1,6 +1,7 @@
 import 'package:demo/utils/type_def.dart';
 import 'package:flutter/material.dart';
 
+
 class AuthTextField extends StatelessWidget {
   final String labelText;
   final TextEditingController controller;

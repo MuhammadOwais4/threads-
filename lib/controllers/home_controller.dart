@@ -3,9 +3,11 @@ import 'package:demo/services/supabase_service.dart';
 import 'package:demo/utils/helpers.dart';
 import 'package:get/get.dart';
 
+
 class HomeController extends GetxController {
   RxBool isLaoding = false.obs;
   Rx<List<PostModel>> posts = Rx<List<PostModel>>([]);
+
 
   @override
   void onInit() {
@@ -62,4 +64,7 @@ users:user_id (email , metadata)
           .rpc("like_decrement", params: {"row_id": postId, "count": 1});
     }
   }
+
+
+
 }

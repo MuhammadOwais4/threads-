@@ -4,6 +4,8 @@ import 'package:demo/utils/helpers.dart';
 import 'package:demo/widgets/profile/image_circle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
 

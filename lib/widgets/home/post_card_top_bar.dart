@@ -1,7 +1,6 @@
 import 'package:demo/models/post_model.dart';
 import 'package:demo/utils/helpers.dart';
 import 'package:flutter/material.dart';
-
 class PostCardTopBar extends StatelessWidget {
   final PostModel post;
   const PostCardTopBar({super.key, required this.post});

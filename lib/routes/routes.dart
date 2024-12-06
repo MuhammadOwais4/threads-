@@ -5,6 +5,7 @@ import 'package:demo/view/home.dart';
 import 'package:demo/view/profile/edit_profile_page.dart';
 import 'package:demo/view/reply/reply_page.dart';
 import 'package:demo/view/settings/settings_page.dart';
+import 'package:demo/view/show_thread/show_thread.dart';
 import 'package:get/get.dart';
 
 class Routes {
@@ -32,6 +33,10 @@ class Routes {
     GetPage(
       name: RoutesNames.reply,
       page: () => ReplyPage(),
+    ),
+    GetPage(
+      name: RoutesNames.showThread,
+      page: () => const ShowThread(),
     ),
   ];
 }

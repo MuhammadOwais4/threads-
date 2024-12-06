@@ -5,6 +5,7 @@ import 'package:demo/utils/helpers.dart';
 import 'package:demo/widgets/profile/image_circle.dart';
 import 'package:demo/widgets/threads/threads_image_preview.dart';
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
 class AddThreadsPage extends StatefulWidget {
@@ -18,6 +19,8 @@ class _AddThreadsPageState extends State<AddThreadsPage> {
   final ThreadsController controller = Get.put(ThreadsController());
 
   final TextEditingController textEditingController = TextEditingController();
+
+  String content = "";
 
   @override
   void dispose() {
@@ -42,7 +45,7 @@ class _AddThreadsPageState extends State<AddThreadsPage> {
           actions: [
             TextButton(
               onPressed: () {
-                if (!controller.isLoading.value) {
+                if (!controller.isLoading.value && content.isNotEmpty) {
                   controller.addThread(
                     textEditingController.text,
                     SupabaseService.currentUser.value!.id,
@@ -51,8 +54,10 @@ class _AddThreadsPageState extends State<AddThreadsPage> {
               },
               child: controller.isLoading.value
                   ? const CircularProgressIndicator.adaptive()
-                  : const Text(
+                  : Text(
                       "Post",
+                      style: TextStyle(
+                          color: content.isEmpty ? Colors.grey[800] : null),
                     ),
             ),
           ],
@@ -91,6 +96,11 @@ class _AddThreadsPageState extends State<AddThreadsPage> {
                                 .currentUser.value!.userMetadata?["name"],
                           ),
                           TextFormField(
+                            onChanged: (value) {
+                              setState(() {
+                                content = value;
+                              });
+                            },
                             controller: textEditingController,
                             autofocus: true,
                             maxLines: 10,

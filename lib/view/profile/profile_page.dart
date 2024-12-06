@@ -6,6 +6,7 @@ import 'package:demo/widgets/home/thread_card.dart';
 import 'package:demo/widgets/profile/image_circle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
@@ -76,7 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 width: context.width * 0.7,
                                 child: Text(SupabaseService.currentUser.value!
                                         .userMetadata?["description"] ??
-                                    "developer"),
+                                    "Bla Bla Bla"),
                               ),
                             ],
                           ),

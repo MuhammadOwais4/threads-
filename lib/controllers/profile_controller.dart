@@ -27,7 +27,7 @@ class ProfileController extends GetxController {
     try {
       if (image.value != null && image.value!.existsSync()) {
         String path =
-            await SupabaseService.client.storage.from("threadsS3").upload(
+            await SupabaseService.client.storage.from("threadsS5").upload(
                   dir,
                   image.value!,
                   fileOptions: const FileOptions(

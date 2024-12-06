@@ -4,8 +4,6 @@ import 'package:demo/routes/routes_names.dart';
 import 'package:demo/services/supabase_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-
 class PostCardBottomBar extends StatefulWidget {
   const PostCardBottomBar({super.key, required this.post});
   final PostModel post;
@@ -56,15 +54,13 @@ class _PostCardBottomBarState extends State<PostCardBottomBar> {
               ),
             IconButton(
               onPressed: () {
-                Get.toNamed(
-                  RoutesNames.reply,
-                );
+                Get.toNamed(RoutesNames.reply, arguments: widget.post);
               },
               icon: const Icon(Icons.chat_bubble),
             ),
             IconButton(
               onPressed: () {
-                Get.toNamed(RoutesNames.reply, arguments: widget.post);
+              
               },
               icon: const Icon(Icons.send),
             ),

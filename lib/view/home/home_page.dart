@@ -3,6 +3,7 @@ import 'package:demo/widgets/home/thread_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
                   slivers: [
                     SliverAppBar(
                       title: Image.asset(
-                        "./assets/images/logo.png",
+                        "images/logo.png",
                         height: 50,
                       ),
                       centerTitle: true,

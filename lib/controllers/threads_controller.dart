@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:demo/services/navigation_services.dart';
 import 'package:demo/services/supabase_service.dart';
 import 'package:demo/utils/helpers.dart';
@@ -12,6 +11,7 @@ class ThreadsController extends GetxController {
     null,
   );
   RxBool isLoading = false.obs;
+
 
   String uploadedPath = "";
   void pickImage() async {
@@ -66,4 +66,5 @@ class ThreadsController extends GetxController {
       isLoading.value = false;
     }
   }
+
 }
