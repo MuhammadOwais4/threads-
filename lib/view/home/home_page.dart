@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
                   slivers: [
                     SliverAppBar(
                       title: Image.asset(
-                        "../mages/logo.png",
+                        "../images/logo.png",
                         height: 50,
                       ),
                       centerTitle: true,

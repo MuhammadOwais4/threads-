@@ -28,7 +28,7 @@ class ImageCircle extends StatelessWidget {
           CircleAvatar(
             radius: radius,
             backgroundImage: const AssetImage(
-              "../mages/avatar.png",
+              "../images/avatar.png",
             ),
           ),
       ],

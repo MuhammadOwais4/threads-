@@ -10,7 +10,7 @@ class AuthHeader extends StatelessWidget {
     return Column(
       children: [
         Image.asset(
-          "../mages/logo.png",
+          "../images/logo.png",
           height: 80,
         ),
          Align(

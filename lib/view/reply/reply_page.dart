@@ -59,7 +59,7 @@ class _ReplyPageState extends State<ReplyPage> {
               child: const CircleAvatar(
                 radius: 30,
                 backgroundImage: AssetImage(
-                  "../mages/avatar.png",
+                  "../images/avatar.png",
                 ),
               ),
             ),
