@@ -80,7 +80,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 width: context.width * 0.7,
                                 child: Text(SupabaseService.currentUser.value!
                                         .userMetadata?["description"] ??
-                                    "Bla Bla Bla"),
+                                    ""),
                               ),
                             ],
                           ),
