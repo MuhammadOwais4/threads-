@@ -6,8 +6,6 @@ import 'package:demo/view/threads/add_threads_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-
-
 class NavigationServices extends GetxService {
   var currentIndex = 0.obs;
   var previousIndex = 0.obs;

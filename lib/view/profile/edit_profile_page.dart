@@ -62,7 +62,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   children: [
                     ImageCircle(
                       radius: 80,
-                      url: getS5Url(SupabaseService
+                      url: gets5Url(SupabaseService
                           .currentUser.value!.userMetadata?["image"]),
                       file: controller.image.value,
                     ),

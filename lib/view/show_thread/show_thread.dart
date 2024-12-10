@@ -1,11 +1,11 @@
-import 'package:demo/controllers/show_thread_controller.dart';
-import 'package:demo/models/post_model.dart';
+import 'package:demo/controllers/home_controller.dart';
 import 'package:demo/models/reply_model.dart';
 import 'package:demo/utils/helpers.dart';
 import 'package:demo/widgets/home/thread_card.dart';
 import 'package:demo/widgets/profile/image_circle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 
 class ShowThread extends StatefulWidget {
   const ShowThread({super.key});
@@ -15,13 +15,11 @@ class ShowThread extends StatefulWidget {
 }
 
 class _ShowThreadState extends State<ShowThread> {
-  final ShowThreadController controller = Get.put(ShowThreadController());
-
-  final PostModel post = Get.arguments;
+  final HomeController controller = Get.find<HomeController>();
 
   @override
   void initState() {
-    controller.showThread(post.postId);
+    controller.showThread(Get.arguments);
     super.initState();
   }
 
@@ -56,7 +54,7 @@ class _ShowThreadState extends State<ShowThread> {
                                           ListTileTitleAlignment.top,
                                       onTap: () {},
                                       leading: ImageCircle(
-                                        url: getS5Url(
+                                        url: gets5Url(
                                           reply.users!.metadata?.image,
                                         ),
                                       ),

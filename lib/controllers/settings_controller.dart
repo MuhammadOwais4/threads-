@@ -4,7 +4,6 @@ import 'package:demo/services/supabase_service.dart';
 import 'package:demo/utils/storage_keys.dart';
 import 'package:get/get.dart';
 
-
 class SettingsController extends GetxController {
   void logout() {
     StorageService.session.remove(StorageKeys.userSession);

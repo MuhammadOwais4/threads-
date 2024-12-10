@@ -7,8 +7,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:get/get.dart';
-
-
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 

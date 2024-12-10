@@ -1,7 +1,6 @@
 import 'package:demo/services/supabase_service.dart';
 import 'package:demo/utils/helpers.dart';
 import 'package:get/get.dart';
-
 class ReplyController extends GetxController {
   RxBool isLoading = false.obs;
 
@@ -15,6 +14,7 @@ class ReplyController extends GetxController {
         "user_id": userId,
         "reply": reply,
         "post_id": postId,
+        "to_user_id": postUserId
       });
 // Increase the post comment count
       await SupabaseService.client.rpc(

@@ -1,11 +1,10 @@
 import 'package:demo/controllers/search_user_controller.dart';
 import 'package:demo/models/user_model.dart';
+import 'package:demo/routes/routes_names.dart';
 import 'package:demo/utils/helpers.dart';
 import 'package:demo/widgets/profile/image_circle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
 
@@ -82,8 +81,14 @@ class _SearchPageState extends State<SearchPage> {
                             children: [
                               for (UserModel user in controller.users.value)
                                 ListTile(
+                                  onTap: () {
+                                    Get.toNamed(
+                                      RoutesNames.showUserProfile,
+                                      arguments: user.id,
+                                    );
+                                  },
                                   leading: ImageCircle(
-                                    url: getS5Url(
+                                    url: gets5Url(
                                       user.metadata?.image,
                                     ),
                                   ),

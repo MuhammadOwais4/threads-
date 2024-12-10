@@ -27,7 +27,7 @@ class ThreadsController extends GetxController {
         final dir = "$userId/${uuid.v6()}";
 
         String url =
-            await SupabaseService.client.storage.from("threadsS3").upload(
+            await SupabaseService.client.storage.from("threadss5").upload(
                   dir,
                   image.value!,
                 );

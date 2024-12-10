@@ -6,4 +6,6 @@ class RoutesNames {
   static String settings = "/settings";
   static String reply = "/reply";
   static String showThread = "/showThread";
+  static String showPostImage = "/showPostImage";
+  static String showUserProfile = "/showUserProfile";
 }

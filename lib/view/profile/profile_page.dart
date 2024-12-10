@@ -7,6 +7,7 @@ import 'package:demo/widgets/profile/image_circle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
@@ -20,6 +21,8 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     controller.getCurrentUsersThreads(SupabaseService.currentUser.value!.id);
+    controller.getCurrentUserReplies(SupabaseService.currentUser.value!.id);
+
     super.initState();
   }
 
@@ -83,7 +86,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           ImageCircle(
                             radius: 40,
-                            url: getS5Url(
+                            url: gets5Url(
                               SupabaseService
                                   .currentUser.value!.userMetadata?["image"],
                             ),
@@ -142,7 +145,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         text: "Thraeds",
                       ),
                       Tab(
-                        text: "Profile",
+                        text: "Replies",
                       )
                     ],
                   ),
@@ -154,22 +157,77 @@ class _ProfilePageState extends State<ProfilePage> {
             () => TabBarView(children: [
               Padding(
                 padding: const EdgeInsets.only(top: 10.0),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: controller.posts.value.length,
-                    itemBuilder: (context, index) {
-                      return ThreadCard(
-                        post: controller.posts.value[index],
-                      );
-                    },
-                  ),
-                ),
+                child: controller.isLaoding.value
+                    ? const Center(
+                        child: CircularProgressIndicator.adaptive(),
+                      )
+                    : SizedBox(
+                        width: double.infinity,
+                        child: controller.posts.value.isNotEmpty
+                            ? ListView.builder(
+                                physics: const BouncingScrollPhysics(),
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: controller.posts.value.length,
+                                itemBuilder: (context, index) {
+                                  return ThreadCard(
+                                    post: controller.posts.value[index],
+                                  );
+                                },
+                              )
+                            : const Center(
+                                child: Text("No posts found for this profile"),
+                              ),
+                      ),
               ),
-              const Text("I am profile"),
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: controller.isRepliesLoading.value
+                    ? const Center(
+                        child: CircularProgressIndicator.adaptive(),
+                      )
+                    : SizedBox(
+                        width: double.infinity,
+                        child: controller.replies.value.isNotEmpty
+                            ? ListView.builder(
+                                physics: const BouncingScrollPhysics(),
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: controller.replies.value.length,
+                                itemBuilder: (context, index) {
+                                  final item = controller.replies.value[index];
+                                  return ListTile(
+                                    isThreeLine: true,
+                                    titleAlignment: ListTileTitleAlignment.top,
+                                    onTap: () {
+                                      Get.toNamed(RoutesNames.showThread,
+                                          arguments: item.postId);
+                                    },
+                                    leading: ImageCircle(
+                                      url: gets5Url(
+                                        item.users!.metadata!.image,
+                                      ),
+                                    ),
+                                    title: Text(
+                                      item.users!.metadata!.name!,
+                                    ),
+                                    subtitle: Text(
+                                      item.reply!,
+                                    ),
+                                    trailing: Text(
+                                      formateDateFromNow(
+                                        item.createdAt!,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              )
+                            : const Center(
+                                child:
+                                    Text("No replies found for this profile"),
+                              ),
+                      ),
+              ),
             ]),
           ),
         ),

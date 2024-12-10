@@ -1,4 +1,3 @@
-
 import 'package:demo/models/user_model.dart';
 
 class ReplyModel {

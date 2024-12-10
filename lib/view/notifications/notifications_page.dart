@@ -1,10 +1,12 @@
 import 'package:demo/controllers/notifications_controller.dart';
+import 'package:demo/routes/routes_names.dart';
 import 'package:demo/services/navigation_services.dart';
 import 'package:demo/services/supabase_service.dart';
 import 'package:demo/utils/helpers.dart';
 import 'package:demo/widgets/profile/image_circle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 class NotificationsPage extends StatefulWidget {
   const NotificationsPage({super.key});
 
@@ -50,9 +52,13 @@ class _NotificationsPageState extends State<NotificationsPage> {
                     return ListTile(
                       isThreeLine: true,
                       titleAlignment: ListTileTitleAlignment.top,
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(RoutesNames.showThread,
+                            arguments:
+                                controller.notifications.value[index].postId);
+                      },
                       leading: ImageCircle(
-                        url: getS5Url(
+                        url: gets5Url(
                           notification.users!.metadata!.image,
                         ),
                       ),

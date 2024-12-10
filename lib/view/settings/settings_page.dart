@@ -3,7 +3,6 @@ import 'package:demo/utils/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 

@@ -49,9 +49,9 @@ Future<File> compressImage(File file, String targetPath) async {
   return File(result!.path);
 }
 
-String? getS5Url(String? url) {
+String? gets5Url(String? url) {
   if (url != null) {
-    return "https://supabase.com/dashboard/project/dtwtczjbyoedojzlzoad/storage/buckets/threadsS5$url";
+    return "https://dtwtczjbyoedojzlzoad.supabase.co/storage/v1/s3$url";
   }
   return null;
 }

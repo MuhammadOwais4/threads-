@@ -21,7 +21,7 @@ class PostCardImage extends StatelessWidget {
               10,
             ),
             child: Image.network(
-              getS5Url(post.image)!,
+              gets5Url(post.image)!,
             ),
           ),
         ),

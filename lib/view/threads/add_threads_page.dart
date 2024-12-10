@@ -5,8 +5,8 @@ import 'package:demo/utils/helpers.dart';
 import 'package:demo/widgets/profile/image_circle.dart';
 import 'package:demo/widgets/threads/threads_image_preview.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
+
 
 class AddThreadsPage extends StatefulWidget {
   const AddThreadsPage({super.key});
@@ -79,7 +79,7 @@ class _AddThreadsPageState extends State<AddThreadsPage> {
                         8,
                       ),
                       child: ImageCircle(
-                        url: getS5Url(
+                        url: gets5Url(
                           SupabaseService
                               .currentUser.value!.userMetadata?["image"],
                         ),

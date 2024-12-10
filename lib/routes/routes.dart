@@ -3,11 +3,12 @@ import 'package:demo/view/auth/login.dart';
 import 'package:demo/view/auth/register.dart';
 import 'package:demo/view/home.dart';
 import 'package:demo/view/profile/edit_profile_page.dart';
+import 'package:demo/view/profile/show_user_profile.dart';
 import 'package:demo/view/reply/reply_page.dart';
 import 'package:demo/view/settings/settings_page.dart';
+import 'package:demo/view/show_thread/post_image_preview.dart';
 import 'package:demo/view/show_thread/show_thread.dart';
 import 'package:get/get.dart';
-
 class Routes {
   static final pages = [
     GetPage(
@@ -37,6 +38,14 @@ class Routes {
     GetPage(
       name: RoutesNames.showThread,
       page: () => const ShowThread(),
+    ),
+    GetPage(
+      name: RoutesNames.showPostImage,
+      page: () => const PostImagePreview(),
+    ),
+    GetPage(
+      name: RoutesNames.showUserProfile,
+      page: () => const ShowUserProfile(),
     ),
   ];
 }
